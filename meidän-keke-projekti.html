@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meidän keke projekti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark: #1a4731;
+      --green-mid: #2d7a4f;
+      --green-bright: #4caf7d;
+      --green-light: #a8e6c3;
+      --yellow: #f9e04b;
+      --orange: #f4833d;
+      --red: #e84040;
+      --sky: #c9f0ff;
+      --cream: #fdfbf3;
+      --text: #1c2b1e;
+      --leaf: #6bc98a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green-dark);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .logo {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.35rem;
+      color: var(--yellow);
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo span { font-size: 1.5rem; }
+
+    nav { display: flex; gap: 0.25rem; }
+    nav a {
+      color: var(--green-light);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover { background: var(--green-bright); color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: linear-gradient(160deg, #1a4731 0%, #2d7a4f 55%, #4caf7d 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem 6rem;
+      overflow: hidden;
+    }
+
+    .hero-leaves {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-leaves svg {
+      position: absolute;
+      opacity: 0.12;
+      animation: floatLeaf 8s ease-in-out infinite;
+    }
+    .hero-leaves svg:nth-child(1) { top: 5%; left: 3%; width: 120px; animation-delay: 0s; }
+    .hero-leaves svg:nth-child(2) { top: 15%; right: 5%; width: 90px; animation-delay: 1.5s; }
+    .hero-leaves svg:nth-child(3) { bottom: 10%; left: 10%; width: 140px; animation-delay: 3s; }
+    .hero-leaves svg:nth-child(4) { bottom: 8%; right: 8%; width: 80px; animation-delay: 2s; }
+
+    @keyframes floatLeaf {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--green-dark);
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 0.3rem 1rem;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      animation: fadeDown 0.7s 0.1s ease both;
+    }
+    .hero h1 em { color: var(--yellow); font-style: normal; }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.9;
+      animation: fadeDown 0.7s 0.2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeDown 0.7s 0.3s ease both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.75rem 1.8rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-primary { background: var(--yellow); color: var(--green-dark); }
+    .btn-outline { background: transparent; color: #fff; border: 2.5px solid rgba(255,255,255,0.6); }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── STATS STRIP ── */
+    .stats {
+      background: var(--green-bright);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; color: #fff; }
+    .stat strong { display: block; font-family: 'Baloo 2', cursive; font-size: 1.8rem; }
+    .stat span { font-size: 0.85rem; opacity: 0.85; }
+
+    /* ── SECTIONS GENERAL ── */
+    .section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      margin-bottom: 0.4rem;
+    }
+    .section-sub {
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-bottom: 2.5rem;
+    }
+    .divider {
+      width: 60px; height: 5px;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+    .divider-green { background: var(--green-bright); }
+    .divider-red   { background: var(--red); }
+
+    /* ── CARDS GRID ── */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+
+    .card {
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+
+    .card-good { background: #eefaf4; border: 2px solid #b5e8cc; }
+    .card-bad  { background: #fef2f2; border: 2px solid #f7c5c5; }
+
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .card h3 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p { font-size: 0.92rem; line-height: 1.6; opacity: 0.85; }
+    .card ul { font-size: 0.88rem; line-height: 1.8; padding-left: 1.2rem; opacity: 0.8; }
+
+    .card-tag {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+    .tag-good { background: var(--green-light); color: var(--green-dark); }
+    .tag-bad  { background: #ffd6d6; color: #9b1c1c; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) { .highlight-row { grid-template-columns: 1fr; } }
+
+    .highlight-box {
+      border-radius: 24px;
+      padding: 2rem;
+    }
+    .highlight-good { background: linear-gradient(135deg, #d4f7e6, #a8e6c3); }
+    .highlight-bad  { background: linear-gradient(135deg, #ffe0e0, #ffc9c9); }
+    .highlight-box h3 { font-family: 'Baloo 2', cursive; font-size: 1.4rem; margin-bottom: 0.8rem; }
+    .highlight-box p { font-size: 0.95rem; line-height: 1.7; }
+
+    /* ── QUIZ ── */
+    .quiz-section {
+      background: linear-gradient(135deg, #1a4731, #2d7a4f);
+      padding: 4rem 2rem;
+      color: #fff;
+    }
+    .quiz-wrap { max-width: 680px; margin: 0 auto; text-align: center; }
+    .quiz-wrap h2 { font-family: 'Baloo 2', cursive; font-size: 2rem; margin-bottom: 0.5rem; }
+    .quiz-wrap p { opacity: 0.8; margin-bottom: 2rem; }
+
+    .quiz-card {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+    .quiz-question {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .quiz-num {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--green-dark);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.1rem 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+    .quiz-options { display: grid; gap: 0.75rem; }
+    .quiz-opt {
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem 1.2rem;
+      border-radius: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .quiz-opt:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.5); }
+    .quiz-opt.correct { background: #2d7a4f; border-color: var(--green-bright); }
+    .quiz-opt.wrong   { background: #9b1c1c; border-color: var(--red); }
+
+    .quiz-feedback {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      min-height: 1.4em;
+    }
+    .quiz-feedback.ok  { color: var(--green-light); }
+    .quiz-feedback.err { color: #ffaaaa; }
+
+    .quiz-controls { margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; }
+    .quiz-score { margin-top: 1.5rem; font-size: 1.1rem; font-weight: 700; opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-dark);
+      color: var(--green-light);
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+    footer strong { color: var(--yellow); }
+    footer p { font-size: 0.9rem; margin-top: 0.3rem; opacity: 0.7; }
+
+    /* ── SECTION DIVIDER WAVE ── */
+    .wave { display: block; width: 100%; line-height: 0; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo"><span>🌿</span> Meidän keke projekti</div>
+  <nav>
+    <a href="#hyva">Hyvää</a>
+    <a href="#huono">Huonoa</a>
+    <a href="#tietovisa">Tietovisa</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-leaves">
+    <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="35" ry="18" fill="white" transform="rotate(-30 50 50)"/></svg>
+    <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="30" ry="15" fill="white" transform="rotate(45 50 50)"/></svg>
+    <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="20" fill="white" transform="rotate(10 50 50)"/></svg>
+    <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="28" ry="13" fill="white" transform="rotate(-60 50 50)"/></svg>
+  </div>
+  <div class="hero-badge">🏫 Koulutehtävä · Kestävä kehitys</div>
+  <h1>Tekoäly ja <em>luonto</em> –<br/>ystävät vai viholliset?</h1>
+  <p>Tutkimme, miten tekoäly vaikuttaa ympäristöömme – sekä hyviä että huonoja puolia. Tule mukaan oppimaan!</p>
+  <div class="hero-btns">
+    <a href="#hyva" class="btn btn-primary">🌱 Hyvät puolet</a>
+    <a href="#huono" class="btn btn-outline">⚠️ Huonot puolet</a>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats">
+  <div class="stat"><strong>4</strong><span>Tapaa AI auttaa luontoa</span></div>
+  <div class="stat"><strong>4</strong><span>Tapaa AI vahingoittaa luontoa</span></div>
+  <div class="stat"><strong>🌍</strong><span>Yksi planeetta – meidän vastuumme</span></div>
+</div>
+
+<!-- GOOD SECTION -->
+<a id="hyva"></a>
+<div class="section">
+  <div class="reveal">
+    <div class="divider divider-green"></div>
+    <div class="section-title">🌱 Mitä <span style="color:var(--green-mid)">HYVÄÄ</span> tekoäly tekee luonnolle?</div>
+    <p class="section-sub">Tekoäly voi olla luonnon puolella – katso miten!</p>
+  </div>
+
+  <div class="cards reveal">
+    <div class="card card-good">
+      <span class="card-tag tag-good">TIEDE</span>
+      <span class="card-icon">🌍</span>
+      <h3>Ilmaston seuranta</h3>
+      <p>AI analysoi valtavia datamääriä:</p>
+      <ul>
+        <li>Säämallit ja ennusteet</li>
+        <li>Ilmastonmuutoksen seuranta</li>
+        <li>Jäätiköiden sulamisen mittaus</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Tutkijat saavat tarkempaa tietoa → parempia päätöksiä!</p>
+    </div>
+
+    <div class="card card-good">
+      <span class="card-tag tag-good">ELÄIMET</span>
+      <span class="card-icon">🐘</span>
+      <h3>Luonnonsuojelu</h3>
+      <p>AI suojelee eläimiä monin tavoin:</p>
+      <ul>
+        <li>Eläinten seuranta kameroiden avulla</li>
+        <li>Salametsästyksen tunnistus</li>
+        <li>Uhanalaisten lajien suojaus</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Esim. norsuja ja sarvikuonoja suojellaan paremmin!</p>
+    </div>
+
+    <div class="card card-good">
+      <span class="card-tag tag-good">ENERGIA</span>
+      <span class="card-icon">⚡</span>
+      <h3>Energiankäytön optimointi</h3>
+      <p>AI tehostaa energiantuotantoa:</p>
+      <ul>
+        <li>Sähköverkot toimivat tehokkaammin</li>
+        <li>Vähemmän energiahukkaa</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Vähemmän päästöjä ilmakehään!</p>
+    </div>
+
+    <div class="card card-good">
+      <span class="card-tag tag-good">RUOKA</span>
+      <span class="card-icon">🌾</span>
+      <h3>Älymaatalous</h3>
+      <p>Tarkempi viljely säästää luontoa:</p>
+      <ul>
+        <li>Vähemmän vettä tarvitaan</li>
+        <li>Vähemmän lannoitteita</li>
+        <li>Tarkempi ja tehokkaampi viljely</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Vähemmän ympäristökuormaa!</p>
+    </div>
+  </div>
+
+  <div class="highlight-row reveal">
+    <div class="highlight-box highlight-good">
+      <h3>🏆 Paras esimerkki</h3>
+      <p>Afrikan kansallispuistoissa AI-kamerat tunnistavat salametsästäjät reaaliajassa. Tämä on pelastanut satoja norsuja ja sarvikuonoja. Teknologia toimii suojelemisen puolesta!</p>
+    </div>
+    <div class="highlight-box highlight-good">
+      <h3>🌤️ Tiesitkö?</h3>
+      <p>AI:n avulla tuulivoimalat pystyvät ennustamaan tuulen suuntia jopa 36 tuntia etukäteen. Tämä tarkoittaa, että vähemmän varmuussähköä (usein fossiilista) tarvitaan!</p>
+    </div>
+  </div>
+</div>
+
+<!-- WAVE -->
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60">
+  <path fill="#fff5f5" d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z"/>
+</svg>
+
+<!-- BAD SECTION -->
+<a id="huono"></a>
+<div style="background:#fff5f5; padding:0.1rem 0;">
+<div class="section">
+  <div class="reveal">
+    <div class="divider divider-red"></div>
+    <div class="section-title">💀 Mitä <span style="color:var(--red)">HUONOA</span> tekoäly tekee luonnolle?</div>
+    <p class="section-sub">Tekoäly ei ole ilmainen – se maksaa ympäristölle. Katso miten!</p>
+  </div>
+
+  <div class="cards reveal">
+    <div class="card card-bad">
+      <span class="card-tag tag-bad">ENERGIA</span>
+      <span class="card-icon">🔥</span>
+      <h3>Massiivinen energiankulutus</h3>
+      <p>AI ei ole "ilmainen" – koulutus maksaa:</p>
+      <ul>
+        <li>Datakeskukset kuluttavat valtavasti sähköä</li>
+        <li>Mallien koulutus vie järkyttävästi energiaa</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Jos sähkö tulee fossiilisista → suoraan lisää päästöjä!</p>
+    </div>
+
+    <div class="card card-bad">
+      <span class="card-tag tag-bad">VESI</span>
+      <span class="card-icon">💧</span>
+      <h3>Veden kulutus</h3>
+      <p>Palvelimet kuumenevat ja tarvitsevat jäähdytystä:</p>
+      <ul>
+        <li>Jäähdytysjärjestelmät käyttävät vettä</li>
+        <li>Isot datakeskukset kuluttavat miljoonia litroja</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Puhdas vesi on arvokas resurssi!</p>
+    </div>
+
+    <div class="card card-bad">
+      <span class="card-tag tag-bad">KAIVOSTOIMINTA</span>
+      <span class="card-icon">⛏️</span>
+      <h3>Laitteisto ja kaivostoiminta</h3>
+      <p>AI tarvitsee fyysistä laitteistoa:</p>
+      <ul>
+        <li>GPU:t ja sirut – kalliita valmistaa</li>
+        <li>Litium, koboltti ja muut mineraalit</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Kaivostoiminta tuhoaa luontoa ja ekosysteemejä!</p>
+    </div>
+
+    <div class="card card-bad">
+      <span class="card-tag tag-bad">JÄTE</span>
+      <span class="card-icon">🗑️</span>
+      <h3>Elektroniikkajäte (e-jäte)</h3>
+      <p>Teknologia vanhenee nopeasti:</p>
+      <ul>
+        <li>Vanha laitteisto menee nopeasti roskiin</li>
+        <li>E-jäte sisältää myrkyllisiä aineita</li>
+      </ul>
+      <p style="margin-top:0.7rem">👉 Lisää vaarallista elektroniikkajätettä!</p>
+    </div>
+  </div>
+
+  <div class="highlight-row reveal">
+    <div class="highlight-box highlight-bad">
+      <h3>⚠️ Hälyttävä fakta</h3>
+      <p>Yhden suuren AI-mallin kouluttaminen voi tuottaa yhtä paljon hiilidioksidipäästöjä kuin viisi autoa koko elinkaarensa aikana. Tämä on iso hinta teknologialle!</p>
+    </div>
+    <div class="highlight-box highlight-bad">
+      <h3>🤔 Mitä voimme tehdä?</h3>
+      <p>Voimme vaatia, että datakeskukset käyttävät uusiutuvaa energiaa. Voimme myös miettiä, milloin AI:ta todella tarvitaan – jokainen kysymys Chatbotille kuluttaa energiaa!</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- WAVE -->
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60">
+  <path fill="#1a4731" d="M0,20 C480,60 960,0 1440,30 L1440,60 L0,60 Z"/>
+</svg>
+
+<!-- QUIZ -->
+<a id="tietovisa"></a>
+<div class="quiz-section">
+  <div class="quiz-wrap">
+    <h2>🎮 Tietovisa</h2>
+    <p>Testaa mitä opit! Vastaa kysymyksiin ja katso pisteesi.</p>
+    <div class="quiz-card">
+      <div class="quiz-num" id="q-num">Kysymys 1 / 5</div>
+      <div class="quiz-question" id="q-text">Ladataan...</div>
+      <div class="quiz-options" id="q-opts"></div>
+      <div class="quiz-feedback" id="q-feedback"></div>
+      <div class="quiz-controls">
+        <button class="btn btn-primary" id="q-next" style="display:none" onclick="nextQ()">Seuraava ➡️</button>
+      </div>
+      <div class="quiz-score" id="q-score"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-size:2rem; margin-bottom:0.5rem">🌿</div>
+  <strong>Meidän keke projekti</strong>
+  <p>Tehty koulutehtäväksi · Kestävä kehitys &amp; Tekoäly</p>
+  <p style="margin-top:0.8rem; font-size:0.8rem">🌍 Yksi planeetta – huolehditaan siitä yhdessä!</p>
+</footer>
+
+<script>
+  // SCROLL REVEAL
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => obs.observe(el));
+
+  // QUIZ
+  const questions = [
+    {
+      q: "Mikä seuraavista on tekoälyn HYVÄ puoli luonnolle?",
+      opts: ["Elektroniikkajätteen lisääminen", "Eläinten seuranta ja suojelu", "Veden kulutuksen kasvattaminen", "Fossiilisten polttoaineiden käyttö"],
+      correct: 1
+    },
+    {
+      q: "Miksi datakeskukset kuluttavat paljon vettä?",
+      opts: ["Ne kasvattavat puita", "Palvelimia pitää jäähdyttää", "Vettä käytetään sähkön tekemiseen", "Työntekijät juovat paljon vettä"],
+      correct: 1
+    },
+    {
+      q: "Mitä tarkoittaa e-jäte?",
+      opts: ["Elektroniikkajätettä", "Ekolokeroa", "Energiajätettä", "Etäjätettä"],
+      correct: 0
+    },
+    {
+      q: "Miten AI auttaa maataloudessa?",
+      opts: ["Se kasvattaa enemmän lehmiä", "Se vähentää veden ja lannoitteiden käyttöä", "Se poistaa kaikki maatilat", "Se lähettää ruokaa avaruuteen"],
+      correct: 1
+    },
+    {
+      q: "Mikä mineraali mainitaan esimerkkinä kaivostoiminnasta AI-laitteistolle?",
+      opts: ["Kulta ja hopea", "Litium ja koboltti", "Rauta ja kupari", "Timantti ja rubiini"],
+      correct: 1
+    }
+  ];
+
+  let current = 0, score = 0, answered = false;
+
+  function loadQ() {
+    answered = false;
+    const q = questions[current];
+    document.getElementById('q-num').textContent = `Kysymys ${current+1} / ${questions.length}`;
+    document.getElementById('q-text').textContent = q.q;
+    document.getElementById('q-feedback').textContent = '';
+    document.getElementById('q-feedback').className = 'quiz-feedback';
+    document.getElementById('q-next').style.display = 'none';
+    document.getElementById('q-score').textContent = '';
+
+    const optsEl = document.getElementById('q-opts');
+    optsEl.innerHTML = '';
+    q.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opt';
+      btn.textContent = opt;
+      btn.onclick = () => answer(i, btn);
+      optsEl.appendChild(btn);
+    });
+  }
+
+  function answer(idx, btn) {
+    if (answered) return;
+    answered = true;
+    const q = questions[current];
+    const allBtns = document.querySelectorAll('.quiz-opt');
+    allBtns.forEach(b => b.style.pointerEvents = 'none');
+
+    const fb = document.getElementById('q-feedback');
+    if (idx === q.correct) {
+      btn.classList.add('correct');
+      fb.textContent = '✅ Oikein! Hyvin tehty!';
+      fb.className = 'quiz-feedback ok';
+      score++;
+    } else {
+      btn.classList.add('wrong');
+      allBtns[q.correct].classList.add('correct');
+      fb.textContent = '❌ Väärin. Oikea vastaus on merkitty vihreällä.';
+      fb.className = 'quiz-feedback err';
+    }
+
+    const nextBtn = document.getElementById('q-next');
+    if (current < questions.length - 1) {
+      nextBtn.style.display = 'inline-flex';
+      nextBtn.textContent = 'Seuraava ➡️';
+    } else {
+      nextBtn.style.display = 'inline-flex';
+      nextBtn.textContent = '🏁 Katso tulos';
+    }
+  }
+
+  function nextQ() {
+    current++;
+    if (current >= questions.length) {
+      showResult();
+    } else {
+      loadQ();
+    }
+  }
+
+  function showResult() {
+    const optsEl = document.getElementById('q-opts');
+    optsEl.innerHTML = '';
+    document.getElementById('q-text').textContent = '🎉 Tietovisa ohi!';
+    document.getElementById('q-num').textContent = 'Tulos';
+    document.getElementById('q-feedback').textContent = '';
+    document.getElementById('q-next').style.display = 'none';
+
+    let msg = '';
+    if (score === 5) msg = '🌟 Täydet pisteet! Olet keke-mestari!';
+    else if (score >= 3) msg = '👍 Hyvä suoritus! Opit paljon!';
+    else msg = '📚 Hyvää yritystä! Lue lisää ja yritä uudelleen!';
+
+    document.getElementById('q-score').innerHTML = `
+      <div style="font-size:2rem; margin-bottom:0.5rem">${score === 5 ? '🏆' : score >= 3 ? '🥈' : '📚'}</div>
+      <div style="font-size:1.4rem; color:var(--yellow)">${score} / ${questions.length} oikein</div>
+      <div style="margin-top:0.5rem; opacity:0.9">${msg}</div>
+      <button class="btn btn-primary" style="margin-top:1.2rem" onclick="restartQuiz()">🔄 Yritä uudelleen</button>
+    `;
+  }
+
+  function restartQuiz() {
+    current = 0; score = 0;
+    loadQ();
+  }
+
+  loadQ();
+</script>
+</body>
+</html>
