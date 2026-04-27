@@ -216,8 +216,7 @@
       font-size: 1.15rem;
       margin-bottom: 0.5rem;
     }
-    .card p { font-size: 0.92rem; line-height: 1.6; opacity: 0.85; }
-    .card ul { font-size: 0.88rem; line-height: 1.8; padding-left: 1.2rem; opacity: 0.8; }
+    .card p { font-size: 0.92rem; line-height: 1.75; opacity: 0.85; }
 
     .card-tag {
       position: absolute;
@@ -324,6 +323,9 @@
     /* ── SECTION DIVIDER WAVE ── */
     .wave { display: block; width: 100%; line-height: 0; }
 
+    /* ── SMOOTH SCROLL ── */
+    html { scroll-behavior: smooth; }
+
     /* ── SCROLL REVEAL ── */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
     .reveal.visible { opacity: 1; transform: none; }
@@ -349,20 +351,20 @@
     <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="40" ry="20" fill="white" transform="rotate(10 50 50)"/></svg>
     <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="28" ry="13" fill="white" transform="rotate(-60 50 50)"/></svg>
   </div>
-  <div class="hero-badge">🏫 Koulutehtävä · Kestävä kehitys</div>
-  <h1>Tekoäly ja <em>luonto</em> –<br/>ystävät vai viholliset?</h1>
-  <p>Tutkimme, miten tekoäly vaikuttaa ympäristöömme – sekä hyviä että huonoja puolia. Tule mukaan oppimaan!</p>
+  <div class="hero-badge">Koulutehtävä · Kestävä kehitys</div>
+  <h1>Tekoäly ja <em>luonto</em> -<br/>ystävät vai viholliset?</h1>
+  <p>Tutkimme, miten tekoäly vaikuttaa ympäristöömme, sekä hyviä että huonoja puolia. Tule mukaan oppimaan!</p>
   <div class="hero-btns">
-    <a href="#hyva" class="btn btn-primary">🌱 Hyvät puolet</a>
-    <a href="#huono" class="btn btn-outline">⚠️ Huonot puolet</a>
+    <a href="#hyva" class="btn btn-primary">Hyvät puolet</a>
+    <a href="#huono" class="btn btn-outline">Huonot puolet</a>
   </div>
 </div>
 
 <!-- STATS STRIP -->
 <div class="stats">
-  <div class="stat"><strong>4</strong><span>Tapaa AI auttaa luontoa</span></div>
-  <div class="stat"><strong>4</strong><span>Tapaa AI vahingoittaa luontoa</span></div>
-  <div class="stat"><strong>🌍</strong><span>Yksi planeetta – meidän vastuumme</span></div>
+  <div class="stat"><strong>3</strong><span>Tapaa AI auttaa luontoa</span></div>
+  <div class="stat"><strong>3</strong><span>Tapaa AI vahingoittaa luontoa</span></div>
+  <div class="stat"><strong>🌍</strong><span>Yksi planeetta, meidän vastuumme</span></div>
 </div>
 
 <!-- GOOD SECTION -->
@@ -370,71 +372,30 @@
 <div class="section">
   <div class="reveal">
     <div class="divider divider-green"></div>
-    <div class="section-title">🌱 Mitä <span style="color:var(--green-mid)">HYVÄÄ</span> tekoäly tekee luonnolle?</div>
-    <p class="section-sub">Tekoäly voi olla luonnon puolella – katso miten!</p>
+    <div class="section-title">Mitä <span style="color:var(--green-mid)">HYVÄÄ</span> tekoäly tekee luonnolle?</div>
+    <p class="section-sub">Ei tekoäly ole pelkästään paha juttu - katsotaan myös toinen puoli.</p>
   </div>
 
   <div class="cards reveal">
     <div class="card card-good">
       <span class="card-tag tag-good">TIEDE</span>
       <span class="card-icon">🌍</span>
-      <h3>Ilmaston seuranta</h3>
-      <p>AI analysoi valtavia datamääriä:</p>
-      <ul>
-        <li>Säämallit ja ennusteet</li>
-        <li>Ilmastonmuutoksen seuranta</li>
-        <li>Jäätiköiden sulamisen mittaus</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Tutkijat saavat tarkempaa tietoa → parempia päätöksiä!</p>
+      <h3>Ilmaston ymmärtäminen</h3>
+      <p>Tutkijat hyödyntävät tekoälyä säämallien ja jäätiköiden sulamisen seurannassa, koska se pystyy käsittelemään valtavia tietomääriä paljon ihmistä nopeammin. Ennen tähän meni vuosia - nyt tulokset saadaan viikoissa. Se tarkoittaa parempia päätöksiä siinä, miten ilmastonmuutokseen vastataan.</p>
     </div>
 
     <div class="card card-good">
       <span class="card-tag tag-good">ELÄIMET</span>
       <span class="card-icon">🐘</span>
-      <h3>Luonnonsuojelu</h3>
-      <p>AI suojelee eläimiä monin tavoin:</p>
-      <ul>
-        <li>Eläinten seuranta kameroiden avulla</li>
-        <li>Salametsästyksen tunnistus</li>
-        <li>Uhanalaisten lajien suojaus</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Esim. norsuja ja sarvikuonoja suojellaan paremmin!</p>
+      <h3>Norsut ja kamerat</h3>
+      <p>Afrikan kansallispuistoissa tekoäly tunnistaa kameroiden kuvista salametsästäjät reaaliajassa - jopa pimeässä. Tämä on käytännössä pelastanut satoja norsuja ja sarvikuonoja. Oli aika hienoa huomata, että teknologia voi oikeasti toimia luonnon puolesta eikä sitä vastaan.</p>
     </div>
 
     <div class="card card-good">
       <span class="card-tag tag-good">ENERGIA</span>
       <span class="card-icon">⚡</span>
-      <h3>Energiankäytön optimointi</h3>
-      <p>AI tehostaa energiantuotantoa:</p>
-      <ul>
-        <li>Sähköverkot toimivat tehokkaammin</li>
-        <li>Vähemmän energiahukkaa</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Vähemmän päästöjä ilmakehään!</p>
-    </div>
-
-    <div class="card card-good">
-      <span class="card-tag tag-good">RUOKA</span>
-      <span class="card-icon">🌾</span>
-      <h3>Älymaatalous</h3>
-      <p>Tarkempi viljely säästää luontoa:</p>
-      <ul>
-        <li>Vähemmän vettä tarvitaan</li>
-        <li>Vähemmän lannoitteita</li>
-        <li>Tarkempi ja tehokkaampi viljely</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Vähemmän ympäristökuormaa!</p>
-    </div>
-  </div>
-
-  <div class="highlight-row reveal">
-    <div class="highlight-box highlight-good">
-      <h3>🏆 Paras esimerkki</h3>
-      <p>Afrikan kansallispuistoissa AI-kamerat tunnistavat salametsästäjät reaaliajassa. Tämä on pelastanut satoja norsuja ja sarvikuonoja. Teknologia toimii suojelemisen puolesta!</p>
-    </div>
-    <div class="highlight-box highlight-good">
-      <h3>🌤️ Tiesitkö?</h3>
-      <p>AI:n avulla tuulivoimalat pystyvät ennustamaan tuulen suuntia jopa 36 tuntia etukäteen. Tämä tarkoittaa, että vähemmän varmuussähköä (usein fossiilista) tarvitaan!</p>
+      <h3>Tekoäly säästää sähköä - vai säästääkö?</h3>
+      <p>Tekoäly pystyy ennustamaan tuulivoimalalle, milloin tuulee eniten, jopa 36 tuntia etukäteen. Se kuulostaa pieneltä, mutta käytännössä se tarkoittaa, että varmuussähköä - joka usein tuotetaan fossiilisilla - tarvitaan vähemmän. Tässä on toki ristiriita: AI kuluttaa itse sähköä samalla kun se auttaa säästämään sitä.</p>
     </div>
   </div>
 </div>
@@ -450,68 +411,30 @@
 <div class="section">
   <div class="reveal">
     <div class="divider divider-red"></div>
-    <div class="section-title">💀 Mitä <span style="color:var(--red)">HUONOA</span> tekoäly tekee luonnolle?</div>
-    <p class="section-sub">Tekoäly ei ole ilmainen – se maksaa ympäristölle. Katso miten!</p>
+    <div class="section-title">Mitä <span style="color:var(--red)">HUONOA</span> tekoäly tekee luonnolle?</div>
+    <p class="section-sub">Tekoäly ei ole ilmainen. Joku maksaa laskun, ja se on usein luonto.</p>
   </div>
 
   <div class="cards reveal">
     <div class="card card-bad">
       <span class="card-tag tag-bad">ENERGIA</span>
       <span class="card-icon">🔥</span>
-      <h3>Massiivinen energiankulutus</h3>
-      <p>AI ei ole "ilmainen" – koulutus maksaa:</p>
-      <ul>
-        <li>Datakeskukset kuluttavat valtavasti sähköä</li>
-        <li>Mallien koulutus vie järkyttävästi energiaa</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Jos sähkö tulee fossiilisista → suoraan lisää päästöjä!</p>
+      <h3>Tekoäly on aikamoinen sähkösyöppö</h3>
+      <p>Yksi iso tekoälymalli voidaan kouluttaa käyttämällä saman verran energiaa kuin viisi autoa kuluttaa koko elinkaarensa aikana. Se on aika hurja luku. Ja tämä tapahtuu ennen kuin yksikään meistä on edes kirjoittanut sille ensimmäistä viestiä. Onkin aika ristiriitaista, että samalla kun AI auttaa meitä seuraamaan ilmastonmuutosta, sen omat datakeskukset syövät valtavasti sähköä. Voiko hyöty olla suurempi kuin haitta?</p>
     </div>
 
     <div class="card card-bad">
-      <span class="card-tag tag-bad">VESI</span>
+      <span class="card-tag tag-bad">VESI &amp; KAIVOKSET</span>
       <span class="card-icon">💧</span>
-      <h3>Veden kulutus</h3>
-      <p>Palvelimet kuumenevat ja tarvitsevat jäähdytystä:</p>
-      <ul>
-        <li>Jäähdytysjärjestelmät käyttävät vettä</li>
-        <li>Isot datakeskukset kuluttavat miljoonia litroja</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Puhdas vesi on arvokas resurssi!</p>
-    </div>
-
-    <div class="card card-bad">
-      <span class="card-tag tag-bad">KAIVOSTOIMINTA</span>
-      <span class="card-icon">⛏️</span>
-      <h3>Laitteisto ja kaivostoiminta</h3>
-      <p>AI tarvitsee fyysistä laitteistoa:</p>
-      <ul>
-        <li>GPU:t ja sirut – kalliita valmistaa</li>
-        <li>Litium, koboltti ja muut mineraalit</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Kaivostoiminta tuhoaa luontoa ja ekosysteemejä!</p>
+      <h3>Piilossa olevat kustannukset</h3>
+      <p>Palvelimet kuumenevat ja ne pitää jäähdyttää - siihen tarvitaan järkyttävä määrä vettä. Lisäksi tekoäly tarvitsee fyysistä laitteistoa: GPU-siruja ja akkuja, joissa käytetään litiumia ja kobolttia. Nämä mineraalit kaivetaan maasta kaivoksissa, jotka usein tuhoavat paikallisia ekosysteemejä. Ei siis riitä, että mietitään vain sähköä.</p>
     </div>
 
     <div class="card card-bad">
       <span class="card-tag tag-bad">JÄTE</span>
       <span class="card-icon">🗑️</span>
-      <h3>Elektroniikkajäte (e-jäte)</h3>
-      <p>Teknologia vanhenee nopeasti:</p>
-      <ul>
-        <li>Vanha laitteisto menee nopeasti roskiin</li>
-        <li>E-jäte sisältää myrkyllisiä aineita</li>
-      </ul>
-      <p style="margin-top:0.7rem">👉 Lisää vaarallista elektroniikkajätettä!</p>
-    </div>
-  </div>
-
-  <div class="highlight-row reveal">
-    <div class="highlight-box highlight-bad">
-      <h3>⚠️ Hälyttävä fakta</h3>
-      <p>Yhden suuren AI-mallin kouluttaminen voi tuottaa yhtä paljon hiilidioksidipäästöjä kuin viisi autoa koko elinkaarensa aikana. Tämä on iso hinta teknologialle!</p>
-    </div>
-    <div class="highlight-box highlight-bad">
-      <h3>🤔 Mitä voimme tehdä?</h3>
-      <p>Voimme vaatia, että datakeskukset käyttävät uusiutuvaa energiaa. Voimme myös miettiä, milloin AI:ta todella tarvitaan – jokainen kysymys Chatbotille kuluttaa energiaa!</p>
+      <h3>Tänään uusin, huomenna romu</h3>
+      <p>Teknologia vanhenee nopeasti. Puhelin, joka oli huippumalli kaksi vuotta sitten, on nyt lähes turha. Sama pätee tekoälylaitteistoihin. Vanha elektroniikka päätyy usein roskiin, ja elektroniikkajäte sisältää myrkyllisiä aineita, jotka voivat vuotaa maaperään ja vesistöihin. Ehkä pitäisi miettiä, tarvitaanko uutta laitetta aina niin nopeasti.</p>
     </div>
   </div>
 </div>
@@ -526,7 +449,7 @@
 <a id="tietovisa"></a>
 <div class="quiz-section">
   <div class="quiz-wrap">
-    <h2>🎮 Tietovisa</h2>
+    <h2>Tietovisa</h2>
     <p>Testaa mitä opit! Vastaa kysymyksiin ja katso pisteesi.</p>
     <div class="quiz-card">
       <div class="quiz-num" id="q-num">Kysymys 1 / 5</div>
@@ -534,7 +457,7 @@
       <div class="quiz-options" id="q-opts"></div>
       <div class="quiz-feedback" id="q-feedback"></div>
       <div class="quiz-controls">
-        <button class="btn btn-primary" id="q-next" style="display:none" onclick="nextQ()">Seuraava ➡️</button>
+        <button class="btn btn-primary" id="q-next" style="display:none" onclick="nextQ()">Seuraava →</button>
       </div>
       <div class="quiz-score" id="q-score"></div>
     </div>
@@ -546,10 +469,36 @@
   <div style="font-size:2rem; margin-bottom:0.5rem">🌿</div>
   <strong>Meidän keke projekti</strong>
   <p>Tehty koulutehtäväksi · Kestävä kehitys &amp; Tekoäly</p>
-  <p style="margin-top:0.8rem; font-size:0.8rem">🌍 Yksi planeetta – huolehditaan siitä yhdessä!</p>
+  <p style="margin-top:0.8rem; font-size:0.8rem">Yksi planeetta, huolehditaan siitä yhdessä!</p>
+  <p style="margin-top:1.5rem; font-size:0.72rem; opacity:0.4; letter-spacing:0.05em">© Kaitaan Koulu</p>
 </footer>
 
 <script>
+  // SMOOTH SCROLL WITH EASING
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const start = window.scrollY;
+      const end = target.getBoundingClientRect().top + window.scrollY - 64;
+      const dist = end - start;
+      const duration = Math.min(900, Math.max(400, Math.abs(dist) * 0.4));
+      let startTime = null;
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+      }
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        const elapsed = ts - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, start + dist * easeInOutCubic(progress));
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  });
+
   // SCROLL REVEAL
   const revealEls = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
@@ -598,44 +547,48 @@
     document.getElementById('q-next').style.display = 'none';
     document.getElementById('q-score').textContent = '';
 
+    // Shuffle options while tracking correct answer
+    const correctText = q.opts[q.correct];
+    const shuffled = [...q.opts].sort(() => Math.random() - 0.5);
+    const newCorrectIdx = shuffled.indexOf(correctText);
+
     const optsEl = document.getElementById('q-opts');
     optsEl.innerHTML = '';
-    q.opts.forEach((opt, i) => {
+    shuffled.forEach((opt, i) => {
       const btn = document.createElement('button');
       btn.className = 'quiz-opt';
       btn.textContent = opt;
-      btn.onclick = () => answer(i, btn);
+      btn.onclick = () => answer(i, newCorrectIdx, btn);
       optsEl.appendChild(btn);
     });
   }
 
-  function answer(idx, btn) {
+  function answer(idx, correctIdx, btn) {
     if (answered) return;
     answered = true;
-    const q = questions[current];
     const allBtns = document.querySelectorAll('.quiz-opt');
     allBtns.forEach(b => b.style.pointerEvents = 'none');
 
     const fb = document.getElementById('q-feedback');
-    if (idx === q.correct) {
+    if (idx === correctIdx) {
       btn.classList.add('correct');
-      fb.textContent = '✅ Oikein! Hyvin tehty!';
+      fb.textContent = 'Oikein! Hyvin tehty!';
       fb.className = 'quiz-feedback ok';
       score++;
     } else {
       btn.classList.add('wrong');
-      allBtns[q.correct].classList.add('correct');
-      fb.textContent = '❌ Väärin. Oikea vastaus on merkitty vihreällä.';
+      allBtns[correctIdx].classList.add('correct');
+      fb.textContent = 'Väärin. Oikea vastaus on merkitty vihreällä.';
       fb.className = 'quiz-feedback err';
     }
 
     const nextBtn = document.getElementById('q-next');
     if (current < questions.length - 1) {
       nextBtn.style.display = 'inline-flex';
-      nextBtn.textContent = 'Seuraava ➡️';
+      nextBtn.textContent = 'Seuraava →';
     } else {
       nextBtn.style.display = 'inline-flex';
-      nextBtn.textContent = '🏁 Katso tulos';
+      nextBtn.textContent = 'Katso tulos';
     }
   }
 
@@ -649,27 +602,41 @@
   }
 
   function showResult() {
-    const optsEl = document.getElementById('q-opts');
-    optsEl.innerHTML = '';
-    document.getElementById('q-text').textContent = '🎉 Tietovisa ohi!';
-    document.getElementById('q-num').textContent = 'Tulos';
-    document.getElementById('q-feedback').textContent = '';
-    document.getElementById('q-next').style.display = 'none';
-
+    const medal = score === 5 ? '🥇' : score >= 3 ? '🥈' : '🥉';
     let msg = '';
-    if (score === 5) msg = '🌟 Täydet pisteet! Olet keke-mestari!';
-    else if (score >= 3) msg = '👍 Hyvä suoritus! Opit paljon!';
-    else msg = '📚 Hyvää yritystä! Lue lisää ja yritä uudelleen!';
+    let sub = '';
+    if (score === 5) { msg = 'Täydet pisteet!'; sub = 'Olet keke-mestari. Kaikki oikein!'; }
+    else if (score >= 3) { msg = 'Hyvä suoritus!'; sub = 'Opit paljon. Muutama kohta vielä halluun.'; }
+    else { msg = 'Hyvää yritystä!'; sub = 'Lue lisää ja palaa uudelleen, onnistuu kyllä!'; }
 
-    document.getElementById('q-score').innerHTML = `
-      <div style="font-size:2rem; margin-bottom:0.5rem">${score === 5 ? '🏆' : score >= 3 ? '🥈' : '📚'}</div>
-      <div style="font-size:1.4rem; color:var(--yellow)">${score} / ${questions.length} oikein</div>
-      <div style="margin-top:0.5rem; opacity:0.9">${msg}</div>
-      <button class="btn btn-primary" style="margin-top:1.2rem" onclick="restartQuiz()">🔄 Yritä uudelleen</button>
+    document.querySelector('.quiz-card').innerHTML = `
+      <div style="padding:1rem 0; text-align:center;">
+        <div style="font-size:3.5rem; margin-bottom:0.5rem">${medal}</div>
+        <div style="font-family:'Baloo 2',cursive; font-size:1.8rem; color:var(--yellow); margin-bottom:0.3rem">${msg}</div>
+        <div style="font-size:1rem; opacity:0.8; margin-bottom:1.5rem">${sub}</div>
+        <div style="display:inline-block; background:rgba(255,255,255,0.15); border-radius:16px; padding:1rem 2.5rem; margin-bottom:1.8rem;">
+          <span style="font-size:2.8rem; font-family:'Baloo 2',cursive; color:var(--yellow); font-weight:800;">${score}</span>
+          <span style="font-size:1.4rem; opacity:0.6"> / ${questions.length}</span>
+          <div style="font-size:0.8rem; opacity:0.6; margin-top:0.2rem; letter-spacing:0.05em;">OIKEIN</div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+          <button class="btn btn-primary" onclick="restartQuiz()">Yritä uudelleen</button>
+        </div>
+      </div>
     `;
   }
 
   function restartQuiz() {
+    document.querySelector('.quiz-card').innerHTML = `
+      <div class="quiz-num" id="q-num"></div>
+      <div class="quiz-question" id="q-text"></div>
+      <div class="quiz-options" id="q-opts"></div>
+      <div class="quiz-feedback" id="q-feedback"></div>
+      <div class="quiz-controls">
+        <button class="btn btn-primary" id="q-next" style="display:none" onclick="nextQ()">Seuraava →</button>
+      </div>
+      <div class="quiz-score" id="q-score"></div>
+    `;
     current = 0; score = 0;
     loadQ();
   }
